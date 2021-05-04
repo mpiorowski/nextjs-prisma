@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession, Session } from "next-auth/client";
 import { Pool, QueryResult } from "pg";
-import { Category, Post, Topic } from "../../../../../../components/forum/@common/forumTypes";
+import { Category, Post, Topic } from "../../../../../forum/@common/forumTypes";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const session = await getSession({ req });

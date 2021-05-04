@@ -2,9 +2,9 @@ import { GetServerSideProps, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import React from "react";
 import { TopicsList } from "../../../../components/forum/topics/TopicsList";
-import { Category, Topic } from "../../../../components/forum/@common/forumTypes";
+import { Category, Topic } from "../../@common/forumTypes";
 import AppLayout from "../../../../components/_common/AppLayout";
-import { categoriesApi } from "../../../api/categories";
+import { categoriesApi } from "../../../api/categories.api";
 import { categoryApi } from "../../../api/categories/[categoryUid]";
 import { topicsApi } from "../../../api/categories/[categoryUid]/topics";
 

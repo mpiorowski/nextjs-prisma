@@ -2,9 +2,9 @@ import { GetStaticProps } from 'next';
 import React from 'react';
 import { QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
-import { CategoryList } from '../../../components/forum/categories/CategoryList';
-import { apiFindAllCategories } from '../../../components/forum/@common/forumApis';
-import { Navigation } from '../../../components/Navigation';
+import { apiFindAllCategories } from './@common/forumApis';
+import { CategoryList } from './CategoryList';
+import { Navigation } from '../../components/Navigation';
 
 export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();

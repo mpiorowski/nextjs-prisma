@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/client';
-import { REST } from '../../../@common/@enums';
+import { REST } from '../../@common/@enums';
 
 const prisma = new PrismaClient();
 

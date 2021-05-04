@@ -1,9 +1,9 @@
+import { Category } from '@prisma/client';
 import { Button, Drawer, Form, Input } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 import React from 'react';
 import { useMutation, useQueryClient } from 'react-query';
-import { apiAddCategory } from '../@common/forumApis';
-import { Category } from '../@common/forumTypes';
+import { apiAddCategory } from './@common/forumApis';
 
 const layout = {
   labelCol: { span: 8 },

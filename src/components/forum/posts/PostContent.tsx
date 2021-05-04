@@ -1,6 +1,6 @@
 import { Avatar, Comment } from "antd";
 import React from "react";
-import { Post } from "../@common/forumTypes";
+import { Post } from "../../../pages/forum/@common/forumTypes";
 
 interface Props {
   post: Post;

@@ -1,9 +1,9 @@
 import { GetStaticProps } from "next";
 import React from "react";
 import { PostsList } from "../../../../../../components/forum/posts/PostsList";
-import { Category, Post, Topic } from "../../../../../../components/forum/@common/forumTypes";
+import { Category, Post, Topic } from "../../../../@common/forumTypes";
 import AppLayout from "../../../../../../components/_common/AppLayout";
-import { categoriesApi } from "../../../../../api/categories";
+import { categoriesApi } from "../../../../../api/categories.api";
 import { topicsApi } from "../../../../../api/categories/[categoryUid]/topics";
 import { topicApi } from "../../../../../api/categories/[categoryUid]/topics/[topicUid]";
 import { postsApi } from "../../../../../api/categories/[categoryUid]/topics/[topicUid]/posts";

@@ -1,6 +1,7 @@
+import { Category } from '@prisma/client';
 import { REST } from '../../../@common/@enums';
 import { apiRequest } from '../../../@common/apiRequest';
-import { Category, Post, Topic } from './forumTypes';
+import { Post, Topic } from './forumTypes';
 
 export const apiFindAllCategories = () => {
   return apiRequest<Category[]>({

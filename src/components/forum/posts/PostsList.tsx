@@ -1,8 +1,8 @@
 import { Button, List } from "antd";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
-import { apiFindAllPosts } from "../@common/forumApis";
-import { Post, Topic } from "../@common/forumTypes";
+import { apiFindAllPosts } from "../../../pages/forum/@common/forumApis";
+import { Post, Topic } from "../../../pages/forum/@common/forumTypes";
 import { PostContent } from "./PostContent";
 import { PostDrawer } from "./PostDrawer";
 

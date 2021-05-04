@@ -4,7 +4,7 @@ import React from "react";
 import { useMutation } from "react-query";
 import { useQueryClient } from "react-query";
 import { apiRequest } from "../../../@common/apiRequest";
-import { Post, Topic } from "../@common/forumTypes";
+import { Post, Topic } from "../../../pages/forum/@common/forumTypes";
 
 const layout = {
   labelCol: { span: 8 },

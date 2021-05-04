@@ -3,8 +3,8 @@ import { Button, Dropdown, Menu, Table } from "antd";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
-import { apiFindAllTopics } from "../@common/forumApis";
-import { Category, Topic } from "../@common/forumTypes";
+import { apiFindAllTopics } from "../../../pages/forum/@common/forumApis";
+import { Category, Topic } from "../../../pages/forum/@common/forumTypes";
 import { TopicDrawer } from "./TopicDrawer";
 
 interface Props {

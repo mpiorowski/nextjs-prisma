@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       defaultOptions: {
         queries: {
           refetchInterval: false,
+          refetchOnWindowFocus: false,
         },
       },
     });

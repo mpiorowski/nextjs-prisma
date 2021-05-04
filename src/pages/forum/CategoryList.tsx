@@ -5,7 +5,7 @@ import { Button, Col, List, Row, Skeleton } from 'antd';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { apiFindAllCategories } from '../@common/forumApis';
+import { apiFindAllCategories } from './@common/forumApis';
 import { CategoryDrawer } from './CategoryDrawer';
 
 export const CategoryList = () => {

@@ -12,8 +12,10 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "preserve",
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/prisma/schema.prisma"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

@@ -4,9 +4,9 @@ import { PostsList } from "../../../../../../components/forum/posts/PostsList";
 import { Category, Post, Topic } from "../../../../@common/forumTypes";
 import AppLayout from "../../../../../../components/_common/AppLayout";
 import { categoriesApi } from "../../../../../api/categories.api";
-import { topicsApi } from "../../../../../api/categories/[categoryUid]/topics";
-import { topicApi } from "../../../../../api/categories/[categoryUid]/topics/[topicUid]";
-import { postsApi } from "../../../../../api/categories/[categoryUid]/topics/[topicUid]/posts";
+import { topicsApi } from "../../../../../api/categories/[categoryId]/topics";
+import { topicApi } from "../../../../../api/categories/[categoryId]/topics/[topicUid]";
+import { postsApi } from "../../../../../api/categories/[categoryId]/topics/[topicUid]/posts";
 
 export async function getStaticPaths() {
   let paths = [];

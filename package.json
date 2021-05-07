@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "db-migrate up && next dev",
+    "dev": "db-migrate up && NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start"
   },
@@ -12,6 +12,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@types/pg": "^7.14.11",
     "antd": "^4.15.4",
     "db-migrate": "^0.11.12",
     "db-migrate-pg": "^1.2.2",

@@ -1,9 +1,6 @@
-import { PrismaClient } from '@prisma/client';
 import NextAuth from 'next-auth';
-import Adapters from 'next-auth/adapters';
 import Providers from 'next-auth/providers';
 
-const prisma = new PrismaClient();
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -21,5 +18,12 @@ export default NextAuth({
     }),
   ],
   theme: 'light',
-  adapter: Adapters.Prisma.Adapter({ prisma }),
+  database: {
+    type: 'postgres',
+    host: '127.0.0.1',
+    port: 5432,
+    username: 'admin',
+    password: '12345',
+    database: 'db',
+  },
 });

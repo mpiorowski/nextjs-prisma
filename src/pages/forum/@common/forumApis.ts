@@ -1,7 +1,6 @@
-import { Category } from '@prisma/client';
 import { REST } from '../../../@common/@enums';
 import { apiRequest } from '../../../@common/apiRequest';
-import { Post, Topic } from './forumTypes';
+import { Category, Post, Topic } from './forumTypes';
 
 export const apiFindAllCategories = () => {
   return apiRequest<Category[]>({
@@ -10,9 +9,9 @@ export const apiFindAllCategories = () => {
   });
 };
 
-export const apiFindCategoryByUid = (categoryUid: string | string[]) => {
+export const apiFindCategoryById = (catergoryId: string | string[]) => {
   return apiRequest<Category>({
-    url: 'http://localhost:3000/api/categories/' + categoryUid,
+    url: 'http://localhost:3000/api/categories/' + catergoryId,
     method: REST.GET,
   });
 };
@@ -25,16 +24,16 @@ export const apiAddCategory = (category: Category) => {
   });
 };
 
-export const apiFindAllTopics = (categoryUid: string | string[]) => {
+export const apiFindAllTopics = (catergoryId: string | string[]) => {
   return apiRequest<Topic[]>({
-    url: 'http://localhost:3000/api/categories/' + categoryUid + '/topics',
+    url: 'http://localhost:3000/api/categories/' + catergoryId + '/topics',
     method: REST.GET,
   });
 };
 
-export const apiFindAllPosts = (categoryUid: string | string[], topicUid: string | string[]) => {
+export const apiFindAllPosts = (catergoryId: string | string[], topicUid: string | string[]) => {
   return apiRequest<Post[]>({
-    url: 'http://localhost:3000/api/categories/' + categoryUid + '/topics/' + topicUid + '/posts',
+    url: 'http://localhost:3000/api/categories/' + catergoryId + '/topics/' + topicUid + '/posts',
     method: REST.GET,
   });
 };

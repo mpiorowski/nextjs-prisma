@@ -1,32 +1,25 @@
-import Icon from "@ant-design/icons";
-import { Button, Dropdown, Menu, Table } from "antd";
-import { useRouter } from "next/router";
-import React, { useState } from "react";
-import { useQuery } from "react-query";
-import { apiFindAllTopics } from "../../../pages/forum/@common/forumApis";
-import { Category, Topic } from "../../../pages/forum/@common/forumTypes";
-import { TopicDrawer } from "./TopicDrawer";
+import Icon from '@ant-design/icons';
+import { Button, Dropdown, Menu, Table } from 'antd';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import { useQuery } from 'react-query';
+import { apiFindAllTopics, apiFindCategoryById } from '../../../pages/forum/@common/forumApis';
+import { Topic } from '../../../pages/forum/@common/forumTypes';
 
-interface Props {
-  category: Category;
-  topics: Topic[];
-}
-
-export const TopicsList = ({ category, topics }: Props) => {
+export const TopicsList = () => {
   const router = useRouter();
+  const { categoryId } = router.query;
   const [drawerVisibility, setDrawerVisibility] = useState(false);
 
-  const { data } = useQuery(["topics", category.uid], () => apiFindAllTopics(category.uid), { initialData: topics });
-
-  console.log("category", category);
-  console.log("topics", topics);
+  const { data: topicData } = useQuery(['topics', categoryId], () => apiFindAllTopics(categoryId as string));
+  const { data: categoryData } = useQuery(['category', categoryId], () => apiFindCategoryById(categoryId as string));
 
   const columns = [
     {
-      title: "Title",
-      dataIndex: "title",
-      key: "tTitle",
-      sorter: (a, b) => a.topicTitle.localeCompare(b.topicTitle),
+      title: 'Title',
+      dataIndex: 'title',
+      key: 'tTitle',
+      sorter: (a: any, b: any) => a.topicTitle.localeCompare(b.topicTitle),
       // render: (text, row, index) => {
       // return <NavLink to={"/forum/categories/" + categoryUid + "/topics/" + row.uid + "/posts"}>{text}</NavLink>;
       // },
@@ -62,15 +55,15 @@ export const TopicsList = ({ category, topics }: Props) => {
   return (
     <div>
       {/*//todo - edit category only for author*/}
-      <div className={"topic-header"}>
-        <div className={"topic-header-text"}>
-          <div style={{ color: "black" }}>{category.title}</div>
-          <div className={"topic-header-description"}>{category.description}</div>
+      <div className={'topic-header'}>
+        <div className={'topic-header-text'}>
+          <div style={{ color: 'black' }}>{categoryData?.title}</div>
+          <div className={'topic-header-description'}>{categoryData?.description}</div>
           <Button onClick={() => setDrawerVisibility(true)}>Add topic</Button>
         </div>
         <Dropdown
           placement="bottomRight"
-          trigger={["click"]}
+          trigger={['click']}
           overlay={
             <Menu>
               <Menu.Item
@@ -84,7 +77,7 @@ export const TopicsList = ({ category, topics }: Props) => {
             </Menu>
           }
         >
-          <Button className={"topic-more-btn"} type={"link"}>
+          <Button className={'topic-more-btn'} type={'link'}>
             <Icon type="more" />
           </Button>
         </Dropdown>
@@ -92,26 +85,22 @@ export const TopicsList = ({ category, topics }: Props) => {
 
       <Table
         columns={columns}
-        dataSource={data}
+        dataSource={topicData}
         size="middle"
         onRow={(record: Topic, rowIndex) => {
           return {
             onClick: (event) => {
-              router.push("/forum/categories/" + category.uid + "/topics/" + record.uid + "/posts");
+              router.push('/forum/categories/' + categoryData?.uid + '/topics/' + record.uid + '/posts');
               // console.log("TUTAJ");
             }, // click row
           };
         }}
         // loading={loading}
-        className={"topic-table"}
-        rowKey={(record) => record.uid}
+        className={'topic-table'}
+        // rowKey={(record) => record.uid}
         // pagination={{ pageSize: paginationSize }}
       />
-      <TopicDrawer
-        drawerVisibility={drawerVisibility}
-        setDrawerVisibility={setDrawerVisibility}
-        categoryUid={category.uid}
-      ></TopicDrawer>
+      {/* <TopicDrawer drawerVisibility={drawerVisibility} setDrawerVisibility={setDrawerVisibility} cate={categoryData?.uid}></TopicDrawer> */}
     </div>
   );
 };
